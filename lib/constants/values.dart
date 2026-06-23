@@ -9,7 +9,6 @@ class Values {
     medium: 16,
     mediumLarge: 20,
     large: 24,
-    extraLarge: 32,
   );
 
   static Sizes radius = Sizes(
@@ -18,7 +17,6 @@ class Values {
     medium: 12,
     mediumLarge: 16,
     large: 20,
-    extraLarge: 24,
   );
 
   static Sizes fontSize = Sizes(
@@ -27,6 +25,5 @@ class Values {
     medium: 16,
     mediumLarge: 18,
     large: 20,
-    extraLarge: 24,
   );
 }

@@ -6,7 +6,6 @@ class Sizes {
   double? medium;
   double? mediumLarge;
   double? large;
-  double? extraLarge;
 
   Sizes({
     this.extraSmall,
@@ -14,6 +13,5 @@ class Sizes {
     this.medium,
     this.mediumLarge,
     this.large,
-    this.extraLarge,
   });
 }

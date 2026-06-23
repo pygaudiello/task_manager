@@ -13,7 +13,6 @@ class CustomColors {
   static const Color font = Color(0xFF272727);
   static const Color fontMedium = Color.fromARGB(255, 56, 56, 56);
   static const Color fontSecondary = Color.fromARGB(255, 107, 107, 107);
-  static const Color check = Color.fromARGB(255, 153, 236, 142);
   static const Color statusInProgress = Color.fromARGB(255, 206, 146, 255);
   static const Color statusEnd = primary;
 }
