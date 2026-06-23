@@ -12,7 +12,7 @@ class AppTheme {
     //Escolhi manrope devido à modernidade e traços fáceis de identificar
 
     scaffoldBackgroundColor:
-        CustomColors.background,
+        CustomColors.white,
 
     colorScheme: ColorScheme.fromSeed(
       seedColor: CustomColors.primary,
@@ -21,7 +21,7 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       elevation: 2,
-      backgroundColor: CustomColors.background,
+      backgroundColor: CustomColors.white,
       titleTextStyle: GoogleFonts.manrope(
         fontSize: Values.fontSize.mediumLarge!,
         fontWeight: FontWeight.w700,

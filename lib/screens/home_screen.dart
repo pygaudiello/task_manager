@@ -26,9 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return 'Sem tarefas pendentes';
   }
   if (pendingTasks == 1) {
-    return '1 pendente';
+    return '1 tarefa pendente';
   }
-  return '$pendingTasks pendentes';
+  return '$pendingTasks tarefas pendentes';
   }
 
   Future<void> navigateToCreateTask() async {
@@ -50,12 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: CustomColors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+
         title: Text(
           'Minhas Tarefas',
           style: TextStyle(
             color: CustomColors.primary,
             fontSize: Values.fontSize.large!,
             fontWeight: FontWeight.w800,
+            backgroundColor: CustomColors.white,
           ),
         ),
       ),
@@ -124,9 +131,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                           task.title,
                                           style: TextStyle(
                                             fontSize: Values
-                                                .fontSize.medium,
+                                                .fontSize.mediumLarge,
                                             fontWeight:
                                                 FontWeight.w600,
+                                            color: CustomColors.font,
                                             decoration:
                                                 task.completed
                                                     ? TextDecoration
@@ -145,6 +153,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           maxLines: 2,
                                           overflow:
                                               TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: Values
+                                                  .fontSize.medium,
+                                              color: CustomColors.fontMedium,
+                                          ),
                                         ),
 
                                         SizedBox(
@@ -156,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           'Criada em $formattedDate',
                                           style: TextStyle(
                                             fontSize: Values
-                                                .fontSize.extraSmall,
+                                                .fontSize.extraSmall!,
                                             color: CustomColors
                                                 .fontSecondary,
                                           ),

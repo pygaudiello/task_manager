@@ -9,7 +9,9 @@ class CustomColors {
   static const Color background = Color(0xFFF8FAFC);
   static const Color cardBackground = Color(0xFFF7F7F7);
   static const Color cardBackgroundCompleted = Color.fromARGB(255, 238, 238, 238);
+  static const Color buttonDisabled = Color.fromARGB(255, 165, 165, 165);
   static const Color font = Color(0xFF272727);
-  static const Color fontSecondary = Color(0xFF777777);
+  static const Color fontMedium = Color.fromARGB(255, 56, 56, 56);
+  static const Color fontSecondary = Color.fromARGB(255, 107, 107, 107);
   static const Color check = Color.fromARGB(255, 153, 236, 142);
 }

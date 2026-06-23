@@ -16,6 +16,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
+  bool isButtonEnabled = false;
 
   void saveTask() {
     if (!formKey.currentState!.validate()) return;
@@ -25,14 +26,34 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
       description: descriptionController.text.trim(),
       createdAt: DateTime.now(),
     );
-
     Navigator.pop(context, task);
   }
+
+  void validateForm() {
+  setState(() {
+    isButtonEnabled =
+        titleController.text.trim().isNotEmpty &&
+        descriptionController.text.trim().isNotEmpty;
+  });
+}
+
+@override
+void initState() {
+  super.initState();
+
+  titleController.addListener(validateForm);
+  descriptionController.addListener(validateForm);
+}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
+        backgroundColor: CustomColors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
         iconTheme: IconThemeData(
           color: CustomColors.primary,
         ),
@@ -75,6 +96,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                 ),
                 child: Form(
                   key: formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     children: [
 
@@ -174,9 +196,16 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
 
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: saveTask,
+                    onPressed: isButtonEnabled
+                      ? () {
+                          if (formKey.currentState!.validate()) {
+                            saveTask();
+                          }
+                        }
+                      : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: CustomColors.primary,
+                        disabledBackgroundColor: CustomColors.buttonDisabled,
                       ),
                       child: Text(
                         'Salvar', 
