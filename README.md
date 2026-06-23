@@ -6,10 +6,12 @@ Esse é um projeto de gerenciamento de tarefas feito com Flutter. A ideia foi pr
 
 ## 🚀 Como rodar o projeto
 
-git clone <URL_DO_REPOSITORIO>
+```
+git clone https://github.com/pygaudiello/task_manager.git
 cd <PASTA_DO_PROJETO_NO_SEU_COMPUTADOR> 
 flutter pub get
 flutter run
+```
 
 ---
 
@@ -38,6 +40,7 @@ flutter run
 
 ## 🧱 Estrutura do projeto
 
+```
 lib/
 ├── constants/
 │   ├── app_theme.dart
@@ -53,6 +56,7 @@ lib/
 │   └── create_task_screen.dart
 │
 └── main.dart
+```
 
 ---
 
@@ -70,13 +74,14 @@ lib/
 
 ## 🤖 Uso de IA
 
-Usei ChatGPT como apoio durante o desenvolvimento para:
+Usei o ChatGPT como apoio durante o desenvolvimento para:
 
 - Ajustes de formatação de data  
 - Correção de lógica de tarefas concluídas  
 - Correção de erros de null safety e tipagem  
+- Estruturação e melhoria do README  
 
-Todo o código foi revisado e adaptado por mim.
+Todo o código e o conteúdo final foram revisados e adaptados por mim.
 
 ---
 
