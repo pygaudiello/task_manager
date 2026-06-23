@@ -1,4 +1,4 @@
-<img width="405" height="861" alt="image" src="https://github.com/user-attachments/assets/6feb1b03-b7a7-4911-8a99-5985ce335bfc" /># 📋 Task Manager - Flutter
+# 📋 Task Manager - Flutter
 
 Esse é um projeto de gerenciamento de tarefas feito com Flutter. A ideia foi praticar organização de código, UI e manipulação de estado, sem usar banco de dados (tudo em memória).
 
