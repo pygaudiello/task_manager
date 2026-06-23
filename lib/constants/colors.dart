@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class CustomColors {
   static const Color primary = Color(0xFF14B8A6);
+  static const Color primaryBorder = Color.fromARGB(181, 6, 83, 74);
   static const Color white = Colors.white;
   static const Color background = Color(0xFFF8FAFC);
   static const Color cardBackground = Color(0xFFF7F7F7);

@@ -86,14 +86,19 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                           hintText: 'Informe o título de sua tarefa',
                           labelStyle: TextStyle(
                             fontSize: Values.fontSize.small!,
+                            color: CustomColors.primary,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          hintStyle: TextStyle(
+                            fontSize: Values.fontSize.small!,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(Values.radius.medium!),
-                            borderSide: BorderSide(color: CustomColors.primary),
+                            borderSide: BorderSide(color: CustomColors.primaryBorder),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(Values.radius.medium!),
-                            borderSide: BorderSide(color: CustomColors.primary),
+                            borderSide: BorderSide(color: CustomColors.primaryBorder),
                            ),
                         ),
                         validator: (value) {
@@ -116,14 +121,19 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                           hintText: 'Informe a descrição de sua tarefa',
                           labelStyle: TextStyle(
                             fontSize: Values.fontSize.small!,
+                            color: CustomColors.primary,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          hintStyle: TextStyle(
+                            fontSize: Values.fontSize.small!,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(Values.radius.medium!),
-                            borderSide: BorderSide(color: CustomColors.primary),
+                            borderSide: BorderSide(color: CustomColors.primaryBorder),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(Values.radius.medium!),
-                            borderSide: BorderSide(color: CustomColors.primary),
+                            borderSide: BorderSide(color: CustomColors.primaryBorder),
                           ),
                           alignLabelWithHint: true,
                         ),
