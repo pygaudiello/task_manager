@@ -16,8 +16,8 @@ class Values {
     extraSmall: 4,
     small: 8,
     medium: 12,
-    large: 16,
-    mediumLarge: 20,
+    mediumLarge: 16,
+    large: 20,
     extraLarge: 24,
   );
 
@@ -25,8 +25,8 @@ class Values {
     extraSmall: 12,
     small: 14,
     medium: 16,
+    mediumLarge: 18,
     large: 20,
-    mediumLarge: 20,
     extraLarge: 24,
   );
 }

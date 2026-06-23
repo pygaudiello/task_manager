@@ -20,8 +20,10 @@ class AppTheme {
 
     appBarTheme: AppBarTheme(
       centerTitle: true,
+      elevation: 2,
+      backgroundColor: CustomColors.background,
       titleTextStyle: GoogleFonts.manrope(
-        fontSize: Values.fontSize.large,
+        fontSize: Values.fontSize.mediumLarge!,
         fontWeight: FontWeight.w700,
         color: CustomColors.font,
       ),
