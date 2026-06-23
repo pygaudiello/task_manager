@@ -25,6 +25,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
       title: titleController.text.trim(),
       description: descriptionController.text.trim(),
       createdAt: DateTime.now(),
+      status: TaskStatus.inProgress,
     );
     Navigator.pop(context, task);
   }
@@ -48,6 +49,7 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
        appBar: AppBar(
         backgroundColor: CustomColors.white,
         elevation: 0,
@@ -69,9 +71,8 @@ void initState() {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: Values.spacing.mediumLarge!,
-            vertical: Values.spacing.mediumLarge!,
+          padding: EdgeInsets.all(
+          Values.spacing.mediumLarge!,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

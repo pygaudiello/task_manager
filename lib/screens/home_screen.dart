@@ -17,10 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   
   int get pendingTasks {
     return tasks.where(
-      (task) => !task.completed,
+      (task) => task.status != TaskStatus.completed,
     ).length;
   }
-  
   String get pendingTasksText {
   if (pendingTasks == 0) {
     return 'Sem tarefas pendentes';
@@ -49,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
         backgroundColor: CustomColors.white,
         elevation: 0,
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.all(
-          Values.spacing.small!,
+          Values.spacing.medium!,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: tasks.length,
                       itemBuilder: (context, index) {
                         final task = tasks[index];
-                          final formattedDate = DateFormat('dd/MM/yyyy HH:mm').format(task.createdAt);
+                        final formattedDate = DateFormat('dd/MM/yyyy HH:mm').format(task.createdAt);
+                        final isDone = task.status == TaskStatus.completed;
+                        final statusText = task.status == TaskStatus.completed
+                          ? 'Concluída'
+                          : 'Em andamento';
 
                         return Padding(
                           padding: EdgeInsets.only(
@@ -115,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Expanded(
                                 child: Card(
-                                  color: task.completed
+                                  color: task.status == TaskStatus.completed
                                       ? CustomColors
                                           .cardBackgroundCompleted
                                       : CustomColors.cardBackground,
@@ -131,15 +135,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           task.title,
                                           style: TextStyle(
                                             fontSize: Values
-                                                .fontSize.mediumLarge,
+                                                .fontSize.medium,
                                             fontWeight:
-                                                FontWeight.w600,
-                                            color: CustomColors.font,
-                                            decoration:
-                                                task.completed
-                                                    ? TextDecoration
-                                                        .lineThrough
-                                                    : null,
+                                                FontWeight.w700,
+                                            color: CustomColors.primary,
+                                            decoration: isDone ? TextDecoration.lineThrough : TextDecoration.none,
                                           ),
                                         ),
 
@@ -155,8 +155,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                               TextOverflow.ellipsis,
                                           style: TextStyle(
                                               fontSize: Values
-                                                  .fontSize.medium,
+                                                  .fontSize.small,
                                               color: CustomColors.fontMedium,
+                                              decoration: isDone ? TextDecoration.lineThrough : TextDecoration.none,
+                                            decorationThickness: 2,
+                                          ),
+                                        ),
+
+                                        SizedBox(height: Values.spacing.small),
+
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: Values.spacing.extraSmall!,
+                                            vertical: Values.radius.extraSmall!,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: task.status == TaskStatus.completed
+                                                ? CustomColors.statusEnd.withValues(alpha: 0.15)
+                                                : CustomColors.statusInProgress.withValues(alpha: 0.15),
+                                            borderRadius: BorderRadius.circular(Values.radius.small!),
+                                          ),
+                                          child: Text(
+                                            statusText,
+                                            style: TextStyle(
+                                              fontSize: Values.fontSize.extraSmall,
+                                              fontWeight: FontWeight.w600,
+                                              color: task.status == TaskStatus.completed
+                                                  ? CustomColors.statusEnd
+                                                  : CustomColors.statusInProgress,
+                                            ),
                                           ),
                                         ),
 
@@ -172,6 +199,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 .fontSize.extraSmall!,
                                             color: CustomColors
                                                 .fontSecondary,
+                                            decoration: isDone ? TextDecoration.lineThrough : TextDecoration.none,
+                                            decorationThickness: 2,
                                           ),
                                         ),
                                       ],
@@ -181,14 +210,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
 
                               Checkbox(
-                                value: task.completed,
-                                onChanged: task.completed
-                                    ? null
-                                    : (value) {
-                                        setState(() {
-                                          task.completed = true;
-                                        });
-                                      },
+                                value: task.status == TaskStatus.completed,
+                                onChanged: (value) {
+                                  setState(() {
+                                    task.status = TaskStatus.completed;
+                                  });
+                                },
                               ),
                             ],
                           ),
